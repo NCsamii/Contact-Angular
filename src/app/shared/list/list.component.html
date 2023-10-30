@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="fs-5">Contact list</h3>
+  </div>
+  <input type="text" class="form-control w-75 m-auto mt-2" [(ngModel)]="filterField">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of contactList | filter : filterField">
+          <td>{{item.name}}</td>
+          <td>{{item.phone}}</td>
+          <td>
+            <button (click)="viewContact()">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

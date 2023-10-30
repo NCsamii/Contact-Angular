@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="formData" class="form">
+
+        <div class="d-flex align-items-center justify-content-around my-2">
+          <label for="name" class="form-label mb-0">Name</label>
+          <input type="text" class="form-control ms-4" formControlName="name" name="name">
+        </div>
+
+        <div class="d-flex align-items-center justify-content-around my-2">
+          <label for="name" class="form-label mb-0">Phone</label>
+          <input type="text" class="form-control ms-4" formControlName="phone" name="phone">
+        </div>
+      </form>
+
+      <button type="button" class="btn btn-sm btn-success float-end w-100px my-4" [class.disabled]="formData.invalid"
+        (click)="updateForm()">
+        Submit
+      </button>
+      <div>
+        <button type="button" class="btn btn-sm btn-danger float-end w-100px my-4"> Delete</button>
+        <div>
+          <button type="button" class="btn btn-sm btn-primary float-end w-100px my-4">
+            Change property</button>
+        </div>
+      </div>
