@@ -1,23 +1,25 @@
-<div class="card">
+<div class="card h-100">
   <div class="card-header">
     <h3 class="fs-5">Contact list</h3>
   </div>
-  <input type="text" class="form-control w-75 m-auto mt-2" [(ngModel)]="filterField">
-  <div class="card-body">
+<div class="px-3">
+  <input type="text" class="form-control m-auto mt-2" placeholder="Search ..." [(ngModel)]="filterField">
+</div>
+  <div class="card-body overflow-table">
     <table class="table">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>Name</th>
           <th>Phone</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of contactList | filter : filterField">
+        <tr *ngFor="let item of rows | filter : filterField" class="text-center">
           <td>{{item.name}}</td>
           <td>{{item.phone}}</td>
           <td>
-            <button (click)="viewContact()">
+            <button (click)="viewContact(item.id)" class="btn btn-primary ">
               View
             </button>
           </td>

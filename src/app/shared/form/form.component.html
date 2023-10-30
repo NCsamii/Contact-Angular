@@ -6,15 +6,19 @@
     <form [formGroup]="creatreForm" class="form">
 
       <div class="d-flex align-items-center justify-content-around my-2">
-        <label for="name" class="form-label mb-0">Name</label>
-        <input type="text" class="form-control ms-4" formControlName="name" name="name">
+        <label class="fs-6 fw-bold form-label mt-3">
+          <span class="required">Name:</span>
+        </label>
+        <input type="text" class="form-control ms-4" formControlName="name" id="name" name="name">
       </div>
 
       <div class="d-flex align-items-center justify-content-around my-2">
-        <label for="name" class="form-label mb-0">Phone</label>
-        <input type="text" class="form-control ms-4" formControlName="phone" name="phone">
+        <label class="fs-6 fw-bold form-label mt-3">
+          <span class="required">Phone:</span>
+        </label>
+        <input type="text" class="form-control ms-4" formControlName="phone" id="phone" name="phone">
       </div>
-      <button type="button" class="btn btn-sm btn-success float-end w-100px my-4" [class.disabled]="creatreForm.invalid"
+      <button type="button" class="btn btn-success float-end w-100px my-4" [class.disabled]="creatreForm.invalid"
         (click)="submitForm()">
         Submit
       </button>

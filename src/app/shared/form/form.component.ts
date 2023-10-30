@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {ApiServiceService} from "../services/api-service.service";
 
 @Component({
   selector: 'app-form',
@@ -11,8 +12,11 @@ export class FormComponent {
     name: new FormControl(null, Validators.required),
     phone: new FormControl(null, Validators.required),
   })
+  constructor(private service : ApiServiceService) {
+  }
   submitForm() {
     const body = this.creatreForm.value;
+    this.service.addUser(body)
   }
 
 

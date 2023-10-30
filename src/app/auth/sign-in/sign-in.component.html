@@ -1,0 +1,20 @@
+<div class="d-flex flex-column flex-root bg-light" style="  height:100%;">
+<div class="border-top border-success border-5 rounded m-auto w-25 bg-body  shadow-sm p-10 p-lg-15 mx-auto position-relative shadow-lg">
+<form class="form w-100 p-lg-5" [formGroup]="signInF">
+    <h2 class="text-center text-opacity-75 text-black">Login</h2>
+    <div class="form-group">
+        <label for="userName" class="text-opacity-75 text-black mb-2">Username:</label><br>
+        <input type="text" name="userName" id="userName" class="form-control mb-4" formControlName="userName">
+    </div>
+    <div class="form-group">
+        <label for="password" class="text-opacity-75 text-black mb-2">Password:</label><br>
+        <input type="password" name="password" id="password" class="form-control" formControlName="password">
+    </div>
+    <div class="text-end"><a href=""  class="text-black text-opacity-50 text-decoration-none fs-6">Forgot Password?</a></div>
+    <button type="button" class="btn btn-sm btn-success w-100 my-4 py-2 fs-6" [class.disabled]="signInF.invalid"
+            (click)="signIn()">
+        Submit
+    </button>
+</form>
+</div>
+</div>

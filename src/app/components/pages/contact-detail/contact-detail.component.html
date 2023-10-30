@@ -1,27 +1,22 @@
-<div class="container">
-  <div class="card">
-    <div class="card-body">
-      <form [formGroup]="formData" class="form">
 
-        <div class="d-flex align-items-center justify-content-around my-2">
-          <label for="name" class="form-label mb-0">Name</label>
-          <input type="text" class="form-control ms-4" formControlName="name" name="name">
-        </div>
-
-        <div class="d-flex align-items-center justify-content-around my-2">
-          <label for="name" class="form-label mb-0">Phone</label>
-          <input type="text" class="form-control ms-4" formControlName="phone" name="phone">
-        </div>
-      </form>
-
-      <button type="button" class="btn btn-sm btn-success float-end w-100px my-4" [class.disabled]="formData.invalid"
-        (click)="updateForm()">
-        Submit
-      </button>
-      <div>
-        <button type="button" class="btn btn-sm btn-danger float-end w-100px my-4"> Delete</button>
-        <div>
-          <button type="button" class="btn btn-sm btn-primary float-end w-100px my-4">
-            Change property</button>
+      <div class="d-flex flex-column flex-root bg-light" style="  height:100%;">
+        <div class=" rounded m-auto w-50 shadow-sm p-10 p-lg-15 mx-auto position-relative bg-white shadow-sm">
+          <form class="form w-100 p-lg-5" [formGroup]="formData">
+            <div class="form-group">
+              <label for="name" class="text-opacity-75 text-black mb-2">name:</label><br>
+              <input type="text" name="userName" id="name" class="form-control mb-4" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="phone" class="text-opacity-75 text-black mb-2">phone:</label><br>
+              <input type="text" name="phone" id="phone" class="form-control" formControlName="phone">
+            </div>
+            <button type="button" class="btn btn-success float-end w-100px my-4 mx-1" [class.disabled]="formData.invalid"
+                    (click)="updateForm()">
+              Update
+            </button>
+              <button type="button" class="btn btn-danger float-end w-100px my-4 mx-1"> Delete</button>
+                <button type="button" class="btn btn-primary float-end w-100px my-4 mx-1">
+                  Change property</button>
+          </form>
         </div>
       </div>

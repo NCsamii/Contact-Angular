@@ -1,23 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { MockService } from '../services/mock.service';
-import { ApiServiceService } from '../services/api-service.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {MockService} from '../services/mock.service';
+import {ApiServiceService} from '../services/api-service.service';
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  constructor(private service: ApiServiceService, private data: MockService) {
+    @Input('rows') rows: any[] = [];
 
-  }
-  ngOnInit(): void {
-    this.service.getUsers().subscribe((res) => {
-      console.log(res);
-    })
-  }
-  contactList: any | null = [];
-  filterField: any;
-  viewContact() {
-  }
+    constructor(private router: Router) {
+    }
+
+    ngOnInit(): void {
+
+    }
+
+    filterField: any;
+
+    viewContact(id:any) {
+        this.router.navigate([`/page/details/${id}`]).then();
+
+    }
 }
