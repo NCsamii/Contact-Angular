@@ -26,11 +26,22 @@ export class ApiServiceService {
 
     }
 
-    updateUser() {
+    updateUser(body: any, id: any) {
+        this.mock.userData.splice(this.mock.userData.findIndex((object) => object.id === id), 1, body);
+        console.log(this.mock.userData)
 
     }
 
-    deleteUser() {
+    updatePriority(body: any, id: any) {
+        let value: any = this.mock.userData.find((element: any) => element.id == id)
+        value['priority'] = body
+        console.log(this.mock.userData)
+
+    }
+
+    deleteUser(id: any) {
+        this.mock.userData.splice(this.mock.userData.findIndex((object) => object.id === id), 1)
+        console.log(this.mock.userData)
 
     }
 }

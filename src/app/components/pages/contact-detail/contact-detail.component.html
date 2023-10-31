@@ -1,22 +1,46 @@
-
-      <div class="d-flex flex-column flex-root bg-light" style="  height:100%;">
-        <div class=" rounded m-auto w-50 shadow-sm p-10 p-lg-15 mx-auto position-relative bg-white shadow-sm">
-          <form class="form w-100 p-lg-5" [formGroup]="formData">
+<div class="d-flex flex-column flex-root bg-light" style="  height:100%;">
+    <div class=" rounded m-auto w-50 shadow-sm p-10 p-lg-15 mx-auto position-relative bg-white shadow-sm">
+        <form class="form w-100 p-lg-5" [formGroup]="formData">
             <div class="form-group">
-              <label for="name" class="text-opacity-75 text-black mb-2">name:</label><br>
-              <input type="text" name="userName" id="name" class="form-control mb-4" formControlName="name">
+                <label for="name" class="text-opacity-75 text-black mb-2">name:</label><br>
+                <input type="text" name="userName" id="name" class="form-control mb-4" formControlName="name">
             </div>
             <div class="form-group">
-              <label for="phone" class="text-opacity-75 text-black mb-2">phone:</label><br>
-              <input type="text" name="phone" id="phone" class="form-control" formControlName="phone">
+                <label for="phone" class="text-opacity-75 text-black mb-2">phone:</label><br>
+                <input type="text" name="phone" id="phone" class="form-control" formControlName="phone">
             </div>
-            <button type="button" class="btn btn-success float-end w-100px my-4 mx-1" [class.disabled]="formData.invalid"
+            <button type="button" class="btn btn-success float-end w-100px my-4 mx-1"
                     (click)="updateForm()">
-              Update
+                Update
             </button>
-              <button type="button" class="btn btn-danger float-end w-100px my-4 mx-1"> Delete</button>
-                <button type="button" class="btn btn-primary float-end w-100px my-4 mx-1">
-                  Change property</button>
-          </form>
+            <button type="button" class="btn btn-danger float-end w-100px my-4 mx-1" (click)="delete()"> Delete</button>
+            <button type="button" class="btn btn-primary float-end w-100px my-4 mx-1" (click)="openModal(chPriority)">
+                Change priority
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<ng-template #chPriority let-modal>
+    <div class="modal-body">
+        <form class="form w-100 p-lg-5" [formGroup]="formData">
+            <div class="row g-7">
+                <div class="col-lg-12">
+                    <div class="fv-row mb-3 fv-plugins-icon-container">
+                        <label class="fw-bold form-label mt-3">
+                            <span class="required">Priority:</span>
+                        </label>
+                        <input type="number" name="priority" class="form-control form-control-solid"
+                               formControlName="priority" min="1" id="priority" value="1" required/>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success btn-primary" (click)="changePriority()">
+                Submit
+            </button>
         </div>
-      </div>
+    </div>
+</ng-template>
